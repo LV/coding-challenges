@@ -2,6 +2,9 @@ CXX = g++
 CXXFLAGS = -std=c++23 -I./src
 BUILD_DIR = build
 
+# Pads a `0` if the provided day only has a single digit
+PADDED_DAY := $(shell printf "%02d" $(DAY))
+
 .PHONY: help
 help:
 	@echo "Advent of Code Makefile"
@@ -21,8 +24,8 @@ ifndef DAY
 	$(error DAY is not set. Usage: make run YEAR=2015 DAY=01)
 endif
 	@mkdir -p $(BUILD_DIR)/$(YEAR)
-	@$(CXX) $(CXXFLAGS) src/$(YEAR)/day$(DAY).cpp -o $(BUILD_DIR)/$(YEAR)/day$(DAY)
-	@./$(BUILD_DIR)/$(YEAR)/day$(DAY)
+	@$(CXX) $(CXXFLAGS) src/$(YEAR)/day$(PADDED_DAY).cpp -o $(BUILD_DIR)/$(YEAR)/day$(PADDED_DAY)
+	@./$(BUILD_DIR)/$(YEAR)/day$(PADDED_DAY)
 
 clean:
 	rm -rf $(BUILD_DIR)
