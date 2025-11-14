@@ -56,6 +56,7 @@ int main() {
 
     test_p1();
     test_p2();
+
     std::cout << "Advent of Code: 2015 Day 01\n";
     std::cout << "Part 1: " << solve_p1(read_file_to_string(inputFile)) << "\n";
     std::cout << "Part 2: " << solve_p2(read_file_to_string(inputFile)) << "\n";
